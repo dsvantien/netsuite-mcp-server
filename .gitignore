@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Sessions (contains OAuth tokens)
+sessions/
+*.session.json
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Debug
+.inspector/
