@@ -24,6 +24,8 @@ Create an integration record in NetSuite:
    - **Redirect URI**: `http://localhost:8080/callback` (or your custom port)
 3. Save and copy the **Client ID**
 
+   <img width="1891" height="410" alt="image" src="https://github.com/user-attachments/assets/1779d97e-77e2-4968-8a59-d814e99a8492" />
+
 ### 2. MCP Client Configuration
 
 Add to your MCP client's configuration file:
