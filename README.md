@@ -16,13 +16,25 @@ A Model Context Protocol (MCP) server providing access to NetSuite data through 
 
 ### 1. NetSuite Setup
 
-Create an integration record in NetSuite:
+#### Step 1: Install NetSuite AI Connector SuiteApp
+
+Before creating the integration record, you must install and configure the NetSuite AI Connector SuiteApp:
+
+**Important**: The NetSuite AI Connector SuiteApp is required for MCP functionality. Without it, the MCP tools will not be available even after authentication.
+
+#### Step 2: Create OAuth Integration Record
+
+After installing the SuiteApp, create an integration record:
+
 1. Navigate to **Setup > Integration > Manage Integrations > New**
 2. Fill in the details:
    - **Name**: "MCP Server Integration"
-   - **OAuth 2.0**: ✓ Checked
+   - **OAuth 2.0**: Checked Authorization Code Grant
+                    Checked Public Client
    - **Redirect URI**: `http://localhost:8080/callback` (or your custom port)
-3. Save and copy the **Client ID**
+3. Save and copy the **Client ID** (consumer key)
+
+**Note**: we dont need client secret (since this is public client and Authorization Code Grant with pkce)
 
    <img width="1891" height="410" alt="image" src="https://github.com/user-attachments/assets/1779d97e-77e2-4968-8a59-d814e99a8492" />
 
@@ -393,6 +405,7 @@ grant_type=refresh_token
 
 - **Node.js** 18.0.0 or higher
 - **NetSuite Account** with MCP access
+- **NetSuite AI Connector SuiteApp** (Bundle ID: 522506) installed and configured
 - **NetSuite Integration Record** with OAuth 2.0 and PKCE enabled
 - **MCP Client** - Any MCP-compatible client (Claude Code, Cursor IDE, Gemini CLI, etc.)
 
