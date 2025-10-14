@@ -14,13 +14,7 @@ A Model Context Protocol (MCP) server providing access to NetSuite data through 
 
 ## Quick Start
 
-### 1. Install Dependencies
-
-```bash
-npm install
-```
-
-### 2. NetSuite Setup
+### 1. NetSuite Setup
 
 Create an integration record in NetSuite:
 1. Navigate to **Setup > Integration > Manage Integrations > New**
@@ -30,7 +24,7 @@ Create an integration record in NetSuite:
    - **Redirect URI**: `http://localhost:8080/callback` (or your custom port)
 3. Save and copy the **Client ID**
 
-### 3. MCP Client Configuration
+### 2. MCP Client Configuration
 
 Add to your MCP client's configuration file:
 
@@ -38,7 +32,50 @@ Add to your MCP client's configuration file:
 **Cursor IDE**: `.cursor/mcp.json`
 **Gemini CLI**: Per Gemini's MCP setup
 
-#### Option A: With Environment Variables (Recommended)
+#### Option A: Using npx (Recommended - No Installation Required)
+
+```json
+{
+  "mcpServers": {
+    "netsuite": {
+      "command": "npx",
+      "args": ["@suiteinsider/netsuite-mcp@latest"],
+      "env": {
+        "NETSUITE_ACCOUNT_ID": "your-account-id",
+        "NETSUITE_CLIENT_ID": "your-client-id",
+        "OAUTH_CALLBACK_PORT": "8080"
+      }
+    }
+  }
+}
+```
+
+**Benefits**:
+- No manual installation required
+- Always uses the latest version with `@latest`
+- Clean, simple configuration
+- Works immediately after MCP client restart
+
+**Optional Environment Variables**:
+- `OAUTH_CALLBACK_PORT` - OAuth callback port (default: 8080)
+
+#### Option B: Local Development Setup
+
+For contributing or local development:
+
+```bash
+# Clone the repository
+git clone https://github.com/dsvantien/netsuite-mcp-server.git
+cd netsuite-mcp-server
+
+# Install dependencies
+npm install
+
+# Test locally with npm link
+npm link
+```
+
+Then configure with absolute path:
 
 ```json
 {
@@ -56,19 +93,14 @@ Add to your MCP client's configuration file:
 }
 ```
 
-**Benefits**: Set credentials once, no need to provide them every time
-
-**Optional Environment Variables**:
-- `OAUTH_CALLBACK_PORT` - OAuth callback port (default: 8080)
-
-#### Option B: Without Environment Variables
+#### Option C: Without Environment Variables
 
 ```json
 {
   "mcpServers": {
     "netsuite": {
-      "command": "node",
-      "args": ["/absolute/path/to/netsuite-mcp-server/src/index.js"]
+      "command": "npx",
+      "args": ["@suiteinsider/netsuite-mcp@latest"]
     }
   }
 }
@@ -76,7 +108,7 @@ Add to your MCP client's configuration file:
 
 **Note**: You'll need to provide credentials when calling `netsuite_authenticate`
 
-### 4. Authenticate & Use
+### 3. Authenticate & Use
 
 Start your MCP client and authenticate:
 
@@ -172,6 +204,26 @@ This modular structure enables:
 ## Environment Variable Configuration
 
 ### Configuration Example
+
+**Recommended npx setup:**
+
+```json
+{
+  "mcpServers": {
+    "netsuite": {
+      "command": "npx",
+      "args": ["@suiteinsider/netsuite-mcp@latest"],
+      "env": {
+        "NETSUITE_ACCOUNT_ID": "123456-sb1",
+        "NETSUITE_CLIENT_ID": "your-client-id-here",
+        "OAUTH_CALLBACK_PORT": "8080"
+      }
+    }
+  }
+}
+```
+
+**Local development setup:**
 
 ```json
 {

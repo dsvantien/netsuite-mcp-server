@@ -1,0 +1,26 @@
+# Development files
+authenticate.js
+.gitignore
+
+# Session data (contains tokens)
+sessions/
+
+# Development and testing
+node_modules/
+*.log
+npm-debug.log*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git/
+.gitattributes

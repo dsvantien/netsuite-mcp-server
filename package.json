@@ -1,7 +1,7 @@
 {
-  "name": "netsuite-mcp-server",
+  "name": "@suiteinsider/netsuite-mcp",
   "version": "1.0.0",
-  "description": "NetSuite MCP server with OAuth 2.0 PKCE authentication for Claude Code",
+  "description": "NetSuite MCP server with OAuth 2.0 PKCE authentication. Works seamlessly with Claude Code, Cursor IDE, and other MCP clients.",
   "type": "module",
   "main": "src/index.js",
   "bin": {
@@ -14,13 +14,26 @@
   "keywords": [
     "netsuite",
     "mcp",
+    "model-context-protocol",
     "oauth",
     "pkce",
     "claude",
-    "netsuite connect",
-    "netsuite mcp server"
+    "claude-code",
+    "cursor-ide",
+    "netsuite-api",
+    "netsuite-integration",
+    "suiteql",
+    "erp-integration"
   ],
-  "author": "",
+  "author": "SuiteInsider",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dsvantien/netsuite-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dsvantien/netsuite-mcp-server/issues"
+  },
+  "homepage": "https://github.com/dsvantien/netsuite-mcp-server#readme",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
