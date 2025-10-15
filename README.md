@@ -2,6 +2,24 @@
 
 A Model Context Protocol (MCP) server providing access to NetSuite data through OAuth 2.0 with PKCE authentication. Works seamlessly with any MCP-compatible client including Claude Code, Cursor IDE, and Gemini CLI.
 
+# Motivation and Context
+NetSuite provides an official AI Connector SuiteApp that enables AI-powered interactions with NetSuite data. However, NetSuite's AI Connector currently only supports:
+
+- Claude via Anthropic's web interface
+- ChatGPT via custom GPT connections
+The problem: Developers using MCP-compatible tools like Claude Code, Cursor IDE, Windsurf, or other CLI/IDE environments cannot leverage NetSuite's AI capabilities
+because there's no MCP server implementation.
+
+This MCP server solves that gap by:
+
+- Providing the missing bridge between MCP clients (Claude Code, Cursor, Gemini CLI, etc.) and NetSuite's AI Connector
+- Enabling the exact same functionality that NetSuite's AI Connector provides, but accessible through any MCP-compatible client
+- Allowing developers to interact with NetSuite data using natural language directly within their development environment
+- Maintaining the same security standards (OAuth 2.0 with PKCE) required by NetSuite's official AI Connector
+  
+In essence, this MCP server brings NetSuite's AI capabilities to the broader MCP ecosystem, allowing developers to query business data, generate reports, and automate
+NetSuite operations without leaving their IDE or CLI.
+
 ## Features
 
 - ✅ **OAuth 2.0 with PKCE** - Secure authentication without client secrets
